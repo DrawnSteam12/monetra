@@ -1,0 +1,97 @@
+:root {
+  /* =====================================
+     COLORS
+  ===================================== */
+
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  --background-primary: #f8fafc;
+  --background-secondary: #ffffff;
+
+  --border-color: #e5e7eb;
+
+  /* =====================================
+     TYPOGRAPHY
+  ===================================== */
+
+  --font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 24px;
+  --font-2xl: 32px;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* =====================================
+     SPACING
+  ===================================== */
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* =====================================
+     BORDER RADIUS
+  ===================================== */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+
+  /* =====================================
+     SHADOWS
+  ===================================== */
+
+  --shadow-sm:
+    0px 2px 8px rgba(0, 0, 0, 0.05);
+
+  --shadow-md:
+    0px 4px 12px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg:
+    0px 8px 20px rgba(0, 0, 0, 0.12);
+
+  /* =====================================
+     LAYOUT
+  ===================================== */
+
+  --sidebar-width: 260px;
+  --navbar-height: 70px;
+  --max-container-width: 1440px;
+
+  /* =====================================
+     BREAKPOINTS
+  ===================================== */
+
+  --mobile: 480px;
+  --tablet: 768px;
+  --laptop: 1024px;
+  --desktop: 1440px;
+
+  /* =====================================
+     TRANSITIONS
+  ===================================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+}

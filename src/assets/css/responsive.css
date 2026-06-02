@@ -1,0 +1,31 @@
+/* =====================================
+   RESPONSIVE BREAKPOINTS
+===================================== */
+
+/* Desktop Large */
+@media screen and (max-width: 1440px) {
+  .app-container {
+    padding: 0 24px;
+  }
+}
+
+/* Laptop */
+@media screen and (max-width: 1024px) {
+  .app-container {
+    padding: 0 20px;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .app-container {
+    padding: 0 16px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .app-container {
+    padding: 0 12px;
+  }
+}

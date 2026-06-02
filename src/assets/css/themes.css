@@ -1,0 +1,27 @@
+/* =====================================
+   LIGHT THEME (DEFAULT)
+===================================== */
+
+:root {
+  --theme-bg: #f8fafc;
+  --theme-surface: #ffffff;
+
+  --theme-text-primary: #111827;
+  --theme-text-secondary: #6b7280;
+
+  --theme-border: #e5e7eb;
+}
+
+/* =====================================
+   DARK THEME
+===================================== */
+
+[data-theme="dark"] {
+  --theme-bg: #111827;
+  --theme-surface: #1f2937;
+
+  --theme-text-primary: #f9fafb;
+  --theme-text-secondary: #9ca3af;
+
+  --theme-border: #374151;
+}

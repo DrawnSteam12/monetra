@@ -1,0 +1,108 @@
+@import "./variables.css";
+
+/* =====================================
+   GLOBAL STYLES
+===================================== */
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-md);
+
+  transition:
+    background-color var(--transition-medium),
+    color var(--transition-medium);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  max-width: var(--max-container-width);
+
+  margin: 0 auto;
+}
+
+/* =====================================
+   FLEX UTILITIES
+===================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =====================================
+   GRID UTILITIES
+===================================== */
+
+.grid {
+  display: grid;
+}
+
+/* =====================================
+   WIDTH UTILITIES
+===================================== */
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* =====================================
+   TEXT UTILITIES
+===================================== */
+
+.text-center {
+  text-align: center;
+}
+
+/* =====================================
+   SPACING UTILITIES
+===================================== */
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.p-sm {
+  padding: var(--spacing-sm);
+}
+
+.p-md {
+  padding: var(--spacing-md);
+}
+
+.p-lg {
+  padding: var(--spacing-lg);
+}
