@@ -1,0 +1,13 @@
+.monthly-chart-skeleton-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.monthly-chart-skeleton {
+  width: 100%;
+
+  height: 100%;
+}

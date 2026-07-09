@@ -1,0 +1,148 @@
+/* =========================
+   ANALYTICS PAGE
+========================= */
+
+.analytics-page {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.analytics-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.analytics-title {
+  margin: 0;
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.analytics-subtitle {
+  margin-top: 8px;
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+
+.analytics-summary {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.analytics-card {
+  background: var(--theme-surface);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.analytics-card:hover {
+  transform: translateY(-2px);
+}
+
+.analytics-card span {
+  font-size: 14px;
+
+  color: var(--text-secondary);
+
+  font-weight: 500;
+}
+
+.analytics-card h3 {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.analytics-summary-error {
+  grid-column: 1 / -1;
+}
+/* =========================
+   CONTENT
+========================= */
+
+.analytics-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .analytics-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .analytics-page {
+    gap: 20px;
+  }
+
+  .analytics-title {
+    font-size: 26px;
+  }
+
+  .analytics-subtitle {
+    font-size: 14px;
+  }
+
+  .analytics-card {
+    border-radius: 20px;
+
+    padding: 20px;
+  }
+
+  .analytics-card h3 {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,17 @@
+.budget-skeleton-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.budget-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.budget-recommendation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

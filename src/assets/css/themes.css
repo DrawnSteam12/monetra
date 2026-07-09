@@ -1,27 +1,45 @@
-/* =====================================
-   LIGHT THEME (DEFAULT)
-===================================== */
-
 :root {
-  --theme-bg: #f8fafc;
+  --primary-color: #2563eb;
+
+  --theme-bg: #e7e9ee;
   --theme-surface: #ffffff;
 
-  --theme-text-primary: #111827;
-  --theme-text-secondary: #6b7280;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
 
-  --theme-border: #e5e7eb;
+  --border-color: #e5e7eb;
+
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
-/* =====================================
+/* =========================
+   LIGHT THEME
+========================= */
+
+[data-theme="light"] {
+  --theme-bg: #f5f7fb;
+  --theme-surface: #ffffff;
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  --border-color: #e5e7eb;
+}
+
+/* =========================
    DARK THEME
-===================================== */
+========================= */
 
 [data-theme="dark"] {
-  --theme-bg: #111827;
-  --theme-surface: #1f2937;
+  --theme-bg: #0f172a;
 
-  --theme-text-primary: #f9fafb;
-  --theme-text-secondary: #9ca3af;
+  --theme-surface: #1e293b;
 
-  --theme-border: #374151;
+  --text-primary: #f8fafc;
+
+  --text-secondary: #94a3b8;
+
+  --border-color: #334155;
+
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
 }

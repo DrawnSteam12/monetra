@@ -1,0 +1,164 @@
+/* =========================
+   SUCCESS MODAL OVERLAY
+========================= */
+
+.delete-success-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+
+  z-index: 2000;
+
+  animation: fadeOverlay 0.25s ease;
+}
+
+/* =========================
+   SUCCESS MODAL
+========================= */
+
+.delete-success-modal {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 36px 32px;
+
+  border-radius: 28px;
+
+  background: var(--theme-surface);
+
+  border: 1px solid var(--border-color);
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+
+  text-align: center;
+
+  animation: successModalIn 0.3s ease;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.delete-success-icon {
+  font-size: 64px;
+
+  color: #22c55e;
+
+  margin-bottom: 18px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.delete-success-modal h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.delete-success-modal p {
+  margin: 18px 0 30px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  font-size: 15px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.delete-success-button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: white;
+
+  background: var(--primary-color);
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.delete-success-button:hover {
+  transform: translateY(-2px);
+}
+
+.delete-success-button:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes successModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .delete-success-modal {
+    padding: 30px 24px;
+  }
+
+  .delete-success-icon {
+    font-size: 56px;
+  }
+
+  .delete-success-modal h2 {
+    font-size: 24px;
+  }
+}

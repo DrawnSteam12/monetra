@@ -1,11 +1,7 @@
+import AppRouter from "./app/routes/AppRouter";
+
 function App() {
-  return (
-    <div className="app-container p-lg">
-      <div className="flex-center">
-        <h1>Monetra</h1>
-      </div>
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;

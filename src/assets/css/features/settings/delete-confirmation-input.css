@@ -1,0 +1,47 @@
+/* =========================
+   DELETE CONFIRMATION INPUT
+========================= */
+
+.delete-confirmation-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.delete-confirmation-input label {
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+.delete-confirmation-input input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--theme-surface);
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.delete-confirmation-input input:focus {
+  outline: none;
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}

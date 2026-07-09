@@ -1,0 +1,381 @@
+/* =========================
+   FORM
+========================= */
+
+.transaction-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-top: 18px;
+}
+
+/* =========================
+   TYPE TOGGLE
+========================= */
+
+.transaction-type-toggle {
+  display: flex;
+
+  gap: 8px;
+
+  padding: 6px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid var(--border-color);
+}
+
+.transaction-toggle {
+  flex: 1;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.transaction-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.active-income {
+  background: rgba(34, 197, 94, 0.16);
+  color: #22c55e;
+}
+
+.active-expense {
+  background: rgba(239, 68, 68, 0.16);
+  color: #ef4444;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.transaction-form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.transaction-form-group label {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.transaction-form-group input,
+.transaction-form-group select,
+.transaction-form-group textarea {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--theme-surface);
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.transaction-form-group select {
+  padding-right: 50px;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  -webkit-appearance: none;
+
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 8 9 11 12 8'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 18px center;
+
+  background-size: 16px;
+}
+
+.transaction-form-group input[type="date"] {
+  color-scheme: dark;
+}
+
+/* light mode compatibility */
+[data-theme="light"] .transaction-form-group input[type="date"] {
+  color-scheme: light;
+}
+
+.transaction-form-group input:focus,
+.transaction-form-group select:focus,
+.transaction-form-group textarea:focus {
+  border-color: var(--primary-color);
+
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.transaction-form-group textarea {
+  resize: none;
+
+  min-height: 90px;
+}
+
+/* =========================
+   REMOVE NUMBER SPINNER
+========================= */
+
+.transaction-form-group input[type="number"]::-webkit-outer-spin-button,
+.transaction-form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+.transaction-form-group input[type="number"] {
+  appearance: textfield;
+
+  -moz-appearance: textfield;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.transaction-submit-button {
+  border: none;
+
+  margin-top: 7px;
+
+  margin-bottom: 10px;
+
+  height: 52px;
+
+  border-radius: 18px;
+
+  background: var(--primary-color);
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.transaction-submit-button:hover {
+  transform: translateY(-1px);
+
+  opacity: 0.96;
+}
+
+.transaction-error {
+  margin: 12px 0 4px;
+
+  color: #ef4444;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+.transaction-field-error {
+  margin-top: 8px;
+
+  font-size: 13px;
+
+  color: #ef4444;
+
+  font-weight: 500;
+}
+
+.error-input {
+  border: 1px solid #ef4444 !important;
+
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.error-input:focus {
+  outline: none;
+
+  border: 1px solid #ef4444 !important;
+
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.16);
+}
+/* =========================
+   CATEGORY SELECT
+========================= */
+
+.category-select-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--theme-surface);
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-select-wrapper:focus-within {
+  border-color: var(--primary-color);
+
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+/* icon only appears if category selected */
+.category-selected-icon {
+  position: absolute;
+
+  left: 18px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  font-size: 18px;
+
+  color: var(--text-secondary);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* default select state */
+.category-select-wrapper select {
+  width: 100%;
+
+  height: 56px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  padding: 0 18px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* custom dropdown arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 8 9 11 12 8'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 18px center;
+
+  background-size: 16px;
+}
+
+/* add left spacing ONLY when icon exists */
+.category-select-wrapper.has-icon select {
+  padding-left: 52px;
+}
+
+/* dropdown options */
+.category-select-wrapper select option {
+  background: #1e293b;
+
+  color: white;
+}
+
+.category-select-wrapper.error-input {
+  border-color: #ef4444;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .transaction-form {
+    gap: 18px;
+  }
+
+  .transaction-toggle {
+    padding: 12px;
+
+    font-size: 14px;
+  }
+
+  .transaction-form-group input,
+  .transaction-form-group select,
+  .transaction-form-group textarea {
+    padding: 13px 14px;
+  }
+
+  .transaction-submit-button {
+    padding: 14px;
+  }
+}

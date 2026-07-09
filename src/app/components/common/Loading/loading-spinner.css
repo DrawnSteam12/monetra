@@ -1,0 +1,39 @@
+.loading-spinner-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  border: 5px solid var(--border-color);
+  border-top-color: var(--primary-color);
+
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+.loading-spinner-text {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

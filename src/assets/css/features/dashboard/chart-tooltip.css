@@ -1,0 +1,61 @@
+.chart-tooltip {
+  min-width: 170px;
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  background: var(--theme-surface);
+
+  border: 1px solid var(--border-color);
+
+  box-shadow: var(--shadow-lg);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.chart-tooltip-label {
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: var(--text-secondary);
+}
+
+.chart-tooltip-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.chart-tooltip-color {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.chart-tooltip-name {
+  flex: 1;
+
+  font-size: 14px;
+
+  color: var(--text-primary);
+}
+
+.chart-tooltip-value {
+  font-size: 14px;
+
+  color: var(--text-primary);
+}

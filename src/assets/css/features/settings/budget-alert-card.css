@@ -1,0 +1,111 @@
+/* =========================
+   BUDGET ALERT CARD
+========================= */
+
+.budget-alert-card {
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--card-bg);
+
+  transition: all 0.3s ease;
+}
+
+.budget-alert-card h3 {
+  margin-bottom: 8px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+.budget-alert-card p {
+  margin-bottom: 12px;
+
+  line-height: 1.5;
+}
+
+.budget-alert-card strong {
+  display: block;
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   HEALTHY
+========================= */
+
+.budget-alert-card.healthy {
+  border-left: 5px solid #22c55e;
+}
+
+/* =========================
+   WARNING
+========================= */
+
+.budget-alert-card.warning {
+  border-left: 5px solid #f59e0b;
+}
+
+/* =========================
+   DANGER
+========================= */
+
+.budget-alert-card.danger {
+  border-left: 5px solid #ef4444;
+}
+
+.budget-alert-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.budget-alert-icon {
+  font-size: 20px;
+}
+
+.budget-alert-card h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+.budget-alert-card p {
+  margin: 0 0 12px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+}
+
+.budget-alert-card strong {
+  font-size: 14px;
+}
+
+.budget-alert-card.healthy {
+  border-color: #22c55e;
+}
+
+.budget-alert-card.healthy .budget-alert-icon {
+  color: #22c55e;
+}
+
+.budget-alert-card.danger {
+  border-color: #ef4444;
+}
+
+.budget-alert-card.danger .budget-alert-icon {
+  color: #ef4444;
+}

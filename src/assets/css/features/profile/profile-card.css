@@ -1,0 +1,114 @@
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    var(--theme-surface);
+
+  border:
+    1px solid
+    var(--border-color);
+
+  box-shadow:
+    0 12px 40px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.profile-avatar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 90px;
+
+  height: 90px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      37,
+      99,
+      235,
+      0.1
+    );
+
+  color:
+    var(--primary-color);
+
+  font-size: 64px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.profile-info h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color:
+    var(--text-primary);
+}
+
+.profile-info p {
+  margin-top: 6px;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 15px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (
+  max-width: 768px
+) {
+  .profile-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 24px;
+  }
+
+  .profile-avatar {
+    width: 80px;
+
+    height: 80px;
+
+    font-size: 56px;
+  }
+
+  .profile-info h2 {
+    font-size: 22px;
+  }
+}
+

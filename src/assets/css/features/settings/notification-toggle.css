@@ -1,0 +1,156 @@
+.notification-toggle {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 18px;
+
+  background: var(--theme-surface);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  margin-bottom: 14px;
+}
+
+.notification-toggle:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.notification-toggle-info h4 {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+.notification-toggle-info p {
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.5;
+}
+.notification-switch {
+  width: 56px;
+
+  height: 32px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: var(--border-color);
+
+  position: relative;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  flex-shrink: 0;
+}
+
+.notification-switch:hover {
+  opacity: 0.9;
+}
+
+.notification-switch.enabled {
+  background: var(--primary-color);
+}
+
+.notification-switch-thumb {
+  position: absolute;
+
+  top: 4px;
+
+  left: 4px;
+
+  width: 24px;
+
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.25s ease;
+}
+
+.notification-toggle-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 6px;
+}
+
+.notification-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 36px;
+
+  height: 36px;
+
+  border-radius: 12px;
+
+  background: rgba(37, 99, 235, 0.1);
+
+  color: var(--primary-color);
+
+  font-size: 16px;
+
+  flex-shrink: 0;
+}
+
+.notification-switch.enabled .notification-switch-thumb {
+  transform: translateX(24px);
+}
+
+@media (max-width: 768px) {
+  .notification-toggle {
+    padding: 16px;
+  }
+
+  .notification-icon {
+    width: 32px;
+
+    height: 32px;
+
+    font-size: 14px;
+  }
+
+  .notification-toggle-info h4 {
+    font-size: 14px;
+  }
+
+  .notification-toggle-info p {
+    font-size: 12px;
+  }
+}

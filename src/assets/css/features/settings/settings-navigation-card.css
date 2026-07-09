@@ -1,0 +1,99 @@
+/* =========================
+   SETTINGS NAVIGATION CARD
+========================= */
+
+.settings-navigation-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 24px;
+
+  background: var(--theme-surface);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  text-align: left;
+}
+
+.settings-navigation-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.settings-navigation-left {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.settings-navigation-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(37, 99, 235, 0.1);
+
+  color: var(--primary-color);
+
+  font-size: 20px;
+}
+
+.settings-navigation-card h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+.settings-navigation-card p {
+  margin-top: 6px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+.settings-navigation-card svg:last-child {
+  color: var(--text-secondary);
+
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .settings-navigation-card {
+    padding: 20px;
+  }
+
+  .settings-navigation-left {
+    gap: 14px;
+  }
+
+  .settings-navigation-icon {
+    width: 46px;
+    height: 46px;
+  }
+}

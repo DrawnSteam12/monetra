@@ -1,0 +1,149 @@
+/* budget-alert-form.css */
+
+.budget-alert-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.budget-alert-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.budget-alert-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.budget-alert-group input {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--theme-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.budget-alert-group input:focus {
+  border-color: var(--primary-color);
+}
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+.budget-alert-save-button {
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 14px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  background: var(--primary-color);
+
+  color: white;
+
+  transition: opacity 0.2s ease;
+}
+
+.budget-alert-save-button:hover {
+  opacity: 0.9;
+}
+
+.budget-alert-error {
+  font-size: 12px;
+
+  color: #ef4444;
+
+  margin-top: 4px;
+}
+
+.budget-alert-success {
+  padding: 12px;
+  border-radius: 12px;
+
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+
+  color: #22c55e;
+  font-size: 14px;
+  font-weight: 600;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  animation: budgetAlertFadeIn 0.3s ease forwards;
+}
+
+@keyframes budgetAlertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.budget-alert-success.fade-out {
+  animation: budgetAlertFadeOut 0.3s ease forwards;
+}
+
+@keyframes budgetAlertFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.budget-alert-reset-button {
+  border: 1px solid var(--border-color);
+
+  border-radius: 14px;
+
+  padding: 14px;
+
+  cursor: pointer;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.budget-alert-reset-button:hover {
+  background: var(--hover-bg);
+}
+
+/* Remove number input arrows (Chrome, Edge, Safari) */
+.budget-alert-group input::-webkit-outer-spin-button,
+.budget-alert-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows (Firefox) */
+.budget-alert-group input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

@@ -1,0 +1,49 @@
+
+/* =========================
+   PRIVACY INFORMATION
+========================= */
+
+.privacy-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.privacy-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.privacy-info-icon {
+  margin-top: 4px;
+  flex-shrink: 0;
+
+  font-size: 18px;
+
+  color: #22c55e;
+}
+
+.privacy-info-icon.shield {
+  color: var(--primary-color);
+}
+
+.privacy-info-item strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+}
+
+.privacy-info-item p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+
+  font-size: 14px;
+}

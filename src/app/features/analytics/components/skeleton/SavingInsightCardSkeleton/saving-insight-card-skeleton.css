@@ -1,0 +1,23 @@
+.saving-skeleton-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.savings-highlight {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.savings-recommendation {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}

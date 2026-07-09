@@ -1,0 +1,45 @@
+.empty-state {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px 24px;
+
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 46px;
+
+  margin-bottom: 18px;
+}
+
+.empty-state h3 {
+  margin: 0;
+
+  font-size: 18px;
+
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  margin-top: 10px;
+
+  max-width: 280px;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+}
+.empty-state-action {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+}

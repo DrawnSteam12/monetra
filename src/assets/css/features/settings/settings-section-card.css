@@ -1,0 +1,70 @@
+/* =========================
+   SETTINGS CARD
+========================= */
+.settings-section-card {
+  background: var(--theme-surface);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  margin-bottom: 24px;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section-card {
+  margin-bottom: 24px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.settings-section-header {
+  margin-bottom: 20px;
+}
+
+.settings-section-header h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+.settings-section-header p {
+  margin-top: 6px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.settings-section-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .settings-section-card {
+    border-radius: 24px;
+
+    padding: 20px;
+  }
+}

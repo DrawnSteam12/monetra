@@ -1,0 +1,46 @@
+.error-state {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 40px 20px;
+}
+
+.error-state-icon {
+  font-size: 54px;
+
+  color: #ef4444;
+
+  margin-bottom: 16px;
+}
+
+.error-state h3 {
+  margin: 0;
+
+  font-size: 20px;
+
+  color: var(--text-primary);
+}
+
+.error-state p {
+  margin-top: 8px;
+
+  color: var(--text-secondary);
+
+  max-width: 320px;
+
+  line-height: 1.5;
+}
+
+.error-state-action {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+}

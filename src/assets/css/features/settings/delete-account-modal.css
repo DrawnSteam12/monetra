@@ -1,0 +1,140 @@
+/* =========================
+   DELETE ACCOUNT MODAL
+========================= */
+
+.delete-account-modal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(90%, 440px);
+
+  background: var(--theme-surface);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 18px;
+}
+
+.delete-modal-icon {
+  font-size: 48px;
+
+  color: #f59e0b;
+}
+
+.delete-account-modal h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.delete-account-modal h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.delete-account-modal p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+.delete-modal-warning {
+  color: #ef4444 !important;
+
+  font-weight: 700;
+}
+
+.delete-modal-actions {
+  width: 100%;
+
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 10px;
+}
+
+.delete-modal-cancel {
+  flex: 1;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border-color);
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.delete-modal-cancel:hover {
+  background: var(--theme-hover);
+}
+
+.delete-modal-confirm {
+  flex: 1;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #dc2626;
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.delete-modal-confirm:hover {
+  background: #b91c1c;
+
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .delete-modal-actions {
+    flex-direction: column;
+  }
+}

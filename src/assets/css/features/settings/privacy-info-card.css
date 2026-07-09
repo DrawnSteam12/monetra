@@ -1,0 +1,47 @@
+/* =========================
+   PRIVACY INFO LIST
+========================= */
+
+.privacy-info-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.privacy-info-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  color: var(--text-primary);
+
+  line-height: 1.6;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.privacy-info-icon {
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  font-size: 18px;
+
+  color: #22c55e;
+}
+
+.privacy-info-icon.shield {
+  color: var(--primary-color);
+}
+
+

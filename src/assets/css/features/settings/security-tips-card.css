@@ -1,0 +1,67 @@
+.security-tips-card {
+  margin-top: 24px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--theme-surface);
+}
+
+.security-tips-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+.security-tips-header h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+.security-tips-header svg {
+  color: var(--primary-color);
+}
+
+.security-tips-list {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.security-tips-list li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+.security-tips-list li svg {
+  color: var(--primary-color);
+
+  flex-shrink: 0;
+}
