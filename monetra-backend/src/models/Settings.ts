@@ -21,6 +21,14 @@ export interface ISettings extends Document {
 
   criticalThreshold: number;
 
+  budgetAlerts: boolean;
+
+  transactionReminders: boolean;
+
+  weeklySummary: boolean;
+
+  monthlyReport: boolean;
+
   createdAt: Date;
 
   updatedAt: Date;
@@ -81,6 +89,26 @@ const settingsSchema = new Schema<ISettings>(
     criticalThreshold: {
       type: Number,
       default: 90,
+    },
+
+    budgetAlerts: {
+      type: Boolean,
+      default: true,
+    },
+
+    transactionReminders: {
+      type: Boolean,
+      default: true,
+    },
+
+    weeklySummary: {
+      type: Boolean,
+      default: false,
+    },
+
+    monthlyReport: {
+      type: Boolean,
+      default: true,
     },
   },
   {

@@ -1,20 +1,14 @@
 import { useState } from "react";
-
 import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
-
 import PasswordRequirements from "./PasswordRequirements";
-
 import type {
   SecurityFormData,
   SecurityFormErrors,
 } from "../types/security-settings.type";
-
 import { validatePasswordForm } from "../utils/password-validation";
-
 import { getPasswordStrength } from "../utils/password-strength";
-
 import PasswordStrength from "./PasswordStrength";
-
+import { changePassword } from "../../../services/user.service";
 import "../../../../assets/css/features/settings/change-password-form.css";
 
 const ChangePasswordForm = () => {
@@ -27,6 +21,8 @@ const ChangePasswordForm = () => {
   const [errors, setErrors] = useState<SecurityFormErrors>({});
 
   const [successMessage, setSuccessMessage] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
 
@@ -54,27 +50,46 @@ const ChangePasswordForm = () => {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    setSuccessMessage("");
 
     const validationErrors = validatePasswordForm(formData);
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-
       return;
     }
+    if (Object.keys(validatePasswordForm).length > 0) {
+      return;
+    }
+    try {
+      setLoading(true);
 
-    setSuccessMessage("Password updated successfully");
+      await changePassword({
+        currentPassword: formData.currentPassword,
+        newPassword: formData.newPassword,
+      });
 
-    setFormData({
-      currentPassword: "",
+      setSuccessMessage("Password updated successfully");
 
-      newPassword: "",
-      confirmPassword: "",
-    });
+      setFormData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
 
-    setErrors({});
+      setErrors({});
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrors({
+          currentPassword: error.message,
+        });
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -180,12 +195,13 @@ const ChangePasswordForm = () => {
         type="submit"
         className="change-password-button"
         disabled={
+          loading ||
           !formData.currentPassword ||
           !formData.newPassword ||
           !formData.confirmPassword
         }
       >
-        Update Password
+        {loading ? "Updating..." : "Update Password"}
       </button>
     </form>
   );

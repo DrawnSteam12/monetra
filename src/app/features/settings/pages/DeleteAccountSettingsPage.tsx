@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import DashboardLayout from "../../dashboard/components/dashboard-layout/DashboardLayout";
 import DeleteAccountWarning from "../components/DeleteAccountWarning";
 import SettingsPageHeader from "../components/SettingsPageHeader";
@@ -9,7 +8,7 @@ import DeleteConfirmationInput from "../components/DeleteConfirmationInput";
 import DeleteAccountButton from "../components/DeleteAccountButton";
 import DeleteAccountModal from "../components/DeleteAccountModal";
 import DeleteSuccessModal from "../components/DeleteSuccessModal";
-import { deleteAccountData } from "../utils/delete-account";
+import { deleteAccount } from "../../../services/user.service";
 
 const DeleteAccountSettingsPage = () => {
   const [confirmationText, setConfirmationText] = useState("");
@@ -22,12 +21,19 @@ const DeleteAccountSettingsPage = () => {
 
   const navigate = useNavigate();
 
-  const handleDeleteAccount = () => {
-    deleteAccountData();
+  const handleDeleteAccount = async () => {
+    try {
+      await deleteAccount();
 
-    setOpenModal(false);
+      localStorage.removeItem("monetra-token");
+      localStorage.removeItem("monetra-theme");
 
-    setShowSuccessModal(true);
+      setOpenModal(false);
+
+      setShowSuccessModal(true);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleContinue = () => {

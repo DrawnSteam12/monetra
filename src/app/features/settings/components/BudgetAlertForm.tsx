@@ -1,14 +1,13 @@
 import { useState } from "react";
-
 import type { BudgetAlertErrors } from "../types/budget-alert-errors.type";
-
 import { validateBudgetAlertSettings } from "../utils/budget-alert-validation";
-
 import type { BudgetAlertSettings } from "../types/budget-alert-settings.type";
-
 import { defaultBudgetAlertSettings } from "../utils/default-budget-alert-settings";
-
 import "../../../../assets/css/features/settings/budget-alert-form.css";
+import {
+  getSettings,
+  updateSettings,
+} from "../../../services/settings.service";
 
 type BudgetAlertFormProps = {
   settings: BudgetAlertSettings;
@@ -53,7 +52,7 @@ const BudgetAlertForm = ({ settings, setSettings }: BudgetAlertFormProps) => {
     }, 2700);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const validationErrors = validateBudgetAlertSettings(settings);
 
     if (Object.keys(validationErrors).length > 0) {
@@ -65,36 +64,43 @@ const BudgetAlertForm = ({ settings, setSettings }: BudgetAlertFormProps) => {
 
     const budgetSettings = {
       monthlyBudget: Number(settings.monthlyBudget),
-
       warningThreshold: Number(settings.warningThreshold),
-
       criticalThreshold: Number(settings.criticalThreshold),
     };
-    showSuccessMessage("Budget settings saved successfully!");
 
-    localStorage.setItem(
-      "monetra-budget-alerts",
-      JSON.stringify(budgetSettings),
-    );
-    console.log("Budget setting saved", budgetSettings);
+    try {
+      const currentSettings = await getSettings();
 
-    setErrors({});
+      await updateSettings({
+        ...currentSettings,
+        ...budgetSettings,
+      });
+
+      showSuccessMessage("Budget settings saved successfully!");
+      setErrors({});
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleReset = () => {
-    setSettings(defaultBudgetAlertSettings);
+  const handleReset = async () => {
+    try {
+      const currentSettings = await getSettings();
 
-    localStorage.setItem(
-      "monetra-budget-alerts",
-      JSON.stringify({
-        monthlyBudget: Number(defaultBudgetAlertSettings.monthlyBudget),
-        warningThreshold: Number(defaultBudgetAlertSettings.warningThreshold),
-        criticalThreshold: Number(defaultBudgetAlertSettings.criticalThreshold),
-      }),
-    );
+      await updateSettings({
+        ...currentSettings,
+        monthlyBudget: 0,
+        warningThreshold: 70,
+        criticalThreshold: 90,
+      });
 
-    setErrors({});
-    showSuccessMessage("Budget settings reset successfully!");
+      setSettings(defaultBudgetAlertSettings);
+
+      setErrors({});
+      showSuccessMessage("Budget settings reset successfully!");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

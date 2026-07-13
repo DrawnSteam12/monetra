@@ -1,22 +1,14 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import type { NotificationSettings } from "../types/notification-settings.type";
-
 import { defaultNotificationSettings } from "../utils/default-notification-settings";
-
 import { useAppData } from "../../../context/app-data-context/AppDataContext";
 import { useBudgetInsights } from "../../analytics/hooks/useBudgetInsights";
 import { getBudgetAlert } from "../utils/budget-alert";
 import BudgetAlertCard from "../components/BudgetAlertCard";
-
 import SettingsPageHeader from "../components/SettingsPageHeader";
-
 import DashboardLayout from "../../dashboard/components/dashboard-layout/DashboardLayout";
-
 import SettingsSectionCard from "../components/SettingsSectionCard";
-
 import NotificationToggle from "../components/NotificationToggle";
-
 import "../../../../assets/css/features/settings/settings-page.css";
 import {
   FaCalendarWeek,
@@ -25,28 +17,57 @@ import {
   FaWallet,
 } from "react-icons/fa";
 
+import {
+  getSettings,
+  updateSettings,
+} from "../../../services/settings.service";
+
 const NotificationSettingsPage = () => {
   const [notifications, setNotifications] = useState<NotificationSettings>(
-    () => {
-      const storedNotifications = localStorage.getItem("monetra-notifications");
-
-      return storedNotifications
-        ? JSON.parse(storedNotifications)
-        : defaultNotificationSettings;
-    },
+    defaultNotificationSettings,
   );
 
-  const handleNotificationToggle = (key: keyof NotificationSettings) => {
-    setNotifications((prev) => {
-      const updated = {
-        ...prev,
-        [key]: !prev[key],
-      };
+  const [loading, setLoading] = useState(true);
 
-      localStorage.setItem("monetra-notifications", JSON.stringify(updated));
+  useEffect(() => {
+    const fetchNotificationSettings = async () => {
+      try {
+        const settings = await getSettings();
 
-      return updated;
-    });
+        setNotifications({
+          budgetAlerts: settings.budgetAlerts ?? true,
+          transactionReminders: settings.transactionReminders ?? true,
+          weeklySummary: settings.weeklySummary ?? false,
+          monthlyReport: settings.monthlyReport ?? true,
+        });
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNotificationSettings();
+  }, []);
+
+  const handleNotificationToggle = async (key: keyof NotificationSettings) => {
+    const updated = {
+      ...notifications,
+      [key]: !notifications[key],
+    };
+
+    setNotifications(updated);
+
+    try {
+      const currentSettings = await getSettings();
+
+      await updateSettings({
+        ...currentSettings,
+        ...updated,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const { transactions } = useAppData();
@@ -57,6 +78,16 @@ const NotificationSettingsPage = () => {
     ? getBudgetAlert(budgetInsights.spendingRatio)
     : null;
 
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <SettingsPageHeader
+          title="Notification Settings"
+          description="Loading settings..."
+        />
+      </DashboardLayout>
+    );
+  }
   return (
     <DashboardLayout>
       <SettingsPageHeader

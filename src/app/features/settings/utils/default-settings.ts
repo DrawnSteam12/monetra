@@ -8,4 +8,22 @@ export const defaultSettings: AppSettings = {
   timezone: "Asia/Manila",
 
   theme: "system",
+
+  emailNotifications: true,
+
+  pushNotifications: true,
+
+  monthlyBudget: 0,
+
+  warningThreshold: 70,
+
+  criticalThreshold: 90,
+
+  budgetAlerts: true,
+
+  transactionReminders: true,
+
+  weeklySummary: false,
+
+  monthlyReport: true,
 };

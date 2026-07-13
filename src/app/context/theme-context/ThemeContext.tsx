@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import { getSettings, updateTheme } from "../../services/settings.service";
 import type { ReactNode } from "react";
 
 type Theme = "light" | "dark" | "system";
@@ -21,20 +21,42 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setThemeState] = useState<Theme>(() => {
+    return (localStorage.getItem("monetra-theme") as Theme | null) ?? "system";
+  });
 
   const [appliedTheme, setAppliedTheme] = useState<AppliedTheme>("light");
 
   const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("monetra-theme") as Theme | null;
+  const setTheme = async (newTheme: Theme) => {
+    setThemeState(newTheme);
 
-    if (storedTheme) {
-      setTheme(storedTheme);
+    try {
+      await updateTheme(newTheme);
+    } catch (error) {
+      console.error("Failed to save theme", error);
     }
+  };
 
-    setIsThemeLoaded(true);
+  useEffect(() => {
+    const loadTheme = async () => {
+      try {
+        const settings = await getSettings();
+
+        setThemeState(settings.theme ?? "system");
+      } catch {
+        const storedTheme = localStorage.getItem(
+          "monetra-theme",
+        ) as Theme | null;
+
+        if (storedTheme) {
+          setThemeState(storedTheme);
+        }
+      }
+      setIsThemeLoaded(true);
+    };
+    loadTheme();
   }, []);
 
   useEffect(() => {
@@ -54,7 +76,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     setAppliedTheme(resolvedTheme);
 
     root.setAttribute("data-theme", resolvedTheme);
-
     localStorage.setItem("monetra-theme", theme);
   }, [theme, isThemeLoaded]);
 

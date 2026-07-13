@@ -51,7 +51,21 @@ export const updateSettings = async (
       });
     }
 
-    const { theme, currency, language, timezone } = request.body;
+    const {
+      theme,
+      currency,
+      language,
+      timezone,
+      emailNotifications,
+      pushNotifications,
+      monthlyBudget,
+      warningThreshold,
+      criticalThreshold,
+      budgetAlerts,
+      transactionReminders,
+      weeklySummary,
+      monthlyReport,
+    } = request.body;
 
     let settings = await Settings.findOne({ userId });
 
@@ -60,11 +74,57 @@ export const updateSettings = async (
         userId,
       });
     }
-    settings.theme = theme;
-    settings.currency = currency;
-    settings.language = language;
-    settings.timezone = timezone;
+    if (theme !== undefined) {
+      settings.theme = theme;
+    }
 
+    if (currency !== undefined) {
+      settings.currency = currency;
+    }
+
+    if (language !== undefined) {
+      settings.language = language;
+    }
+
+    if (timezone !== undefined) {
+      settings.timezone = timezone;
+    }
+
+    if (emailNotifications !== undefined) {
+      settings.emailNotifications = emailNotifications;
+    }
+
+    if (pushNotifications !== undefined) {
+      settings.pushNotifications = pushNotifications;
+    }
+
+    if (monthlyBudget !== undefined) {
+      settings.monthlyBudget = monthlyBudget;
+    }
+
+    if (warningThreshold !== undefined) {
+      settings.warningThreshold = warningThreshold;
+    }
+
+    if (criticalThreshold !== undefined) {
+      settings.criticalThreshold = criticalThreshold;
+    }
+
+    if (budgetAlerts !== undefined) {
+      settings.budgetAlerts = budgetAlerts;
+    }
+
+    if (transactionReminders !== undefined) {
+      settings.transactionReminders = transactionReminders;
+    }
+
+    if (weeklySummary !== undefined) {
+      settings.weeklySummary = weeklySummary;
+    }
+
+    if (monthlyReport !== undefined) {
+      settings.monthlyReport = monthlyReport;
+    }
     await settings.save();
     return response.status(200).json({
       message: "Settings updated successfully",

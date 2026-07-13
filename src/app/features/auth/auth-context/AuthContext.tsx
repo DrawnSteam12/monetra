@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             logout();
           } else {
             console.error(
-              `Authenthication verification failed(${response.status}). Server may be unavailable.`,
+              `Authentication verification failed (${response.status}). Server may be unavailable.`,
             );
           }
           setLoading(false);
@@ -88,11 +88,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const data = await response.json();
 
       if (!response.ok) {
-        alert(data.message);
-
-        return false;
+        throw new Error(data.message || "Invalid credentials");
       }
-
       setUser(data.user);
 
       localStorage.setItem("monetra-user", JSON.stringify(data.user));
@@ -101,11 +98,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       return true;
     } catch (error) {
-      console.error(error);
+      console.error("Login failed:", error);
 
-      alert("Server connection failed");
-
-      return false;
+      throw error instanceof Error
+        ? error
+        : new Error("Server connection failed");
     }
   };
 

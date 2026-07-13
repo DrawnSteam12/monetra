@@ -1,6 +1,5 @@
 import SettingsBackButton from "./SettingBackButton";
 import "../../../../assets/css/features/settings/settings-page-header.css";
-
 type SettingsPageHeaderProps = {
   title: string;
   description: string;
@@ -15,8 +14,8 @@ const SettingsPageHeader = ({
       <SettingsBackButton />
 
       <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <h1 className="settings-title">{title}</h1>
+        <p className="settings-subtitle">{description}</p>
       </div>
     </div>
   );

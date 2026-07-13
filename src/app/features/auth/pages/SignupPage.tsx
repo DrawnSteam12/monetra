@@ -1,20 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import { useTheme } from "../../../context/theme-context/ThemeContext";
-
 import monetraLogoLight from "../../../../assets/branding/monetra-logo-light.png";
-
 import monetraLogoDark from "../../../../assets/branding/monetra-logo-dark.png";
-
 import AuthLayout from "../../../layouts/auth-layout/AuthLayout";
-
 import AuthInput from "../components/AuthInput";
-
 import AuthButton from "../components/AuthButton";
-
 import "../../../../assets/css/features/auth/login-page.css";
+import { registerUser } from "../../../services/auth.service";
+
 const SignupPage = () => {
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -27,8 +25,9 @@ const SignupPage = () => {
 
   const logo = appliedTheme === "dark" ? monetraLogoDark : monetraLogoLight;
 
-  const handleSignup = (event: React.FormEvent) => {
+  const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
+    setError("");
 
     if (
       !formData.fullName ||
@@ -36,19 +35,53 @@ const SignupPage = () => {
       !formData.password ||
       !formData.confirmPassword
     ) {
-      alert("Please fill in all fields.");
+      setError("Please fill in all fields.");
 
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address.");
+
+      return;
+    }
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+    if (!passwordRegex.test(formData.password)) {
+      setError(
+        "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.",
+      );
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.");
+      setError("Passwords do not match.");
 
       return;
     }
 
-    console.log("Account created:", formData.email);
-    navigate("/login");
+    try {
+      setLoading(true);
+      await registerUser({
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      navigate("/login", {
+        state: {
+          successMessage: "Account created successfully! Please sign in.",
+        },
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,12 +103,14 @@ const SignupPage = () => {
             placeholder="Enter full name"
             autoComplete="name"
             value={formData.fullName}
-            onChange={(event) =>
+            onChange={(event) => {
+              setError("");
+
               setFormData({
                 ...formData,
                 fullName: event.target.value,
-              })
-            }
+              });
+            }}
           />
 
           <AuthInput
@@ -84,12 +119,14 @@ const SignupPage = () => {
             placeholder="Enter email"
             autoComplete="email"
             value={formData.email}
-            onChange={(event) =>
+            onChange={(event) => {
+              setError("");
+
               setFormData({
                 ...formData,
                 email: event.target.value,
-              })
-            }
+              });
+            }}
           />
           <AuthInput
             label="Password"
@@ -97,12 +134,14 @@ const SignupPage = () => {
             placeholder="Enter password"
             autoComplete="new-password"
             value={formData.password}
-            onChange={(event) =>
+            onChange={(event) => {
+              setError("");
+
               setFormData({
                 ...formData,
                 password: event.target.value,
-              })
-            }
+              });
+            }}
           />
 
           <AuthInput
@@ -111,15 +150,27 @@ const SignupPage = () => {
             placeholder="Confirm password"
             autoComplete="new-password"
             value={formData.confirmPassword}
-            onChange={(event) =>
+            onChange={(event) => {
+              setError("");
+
               setFormData({
                 ...formData,
                 confirmPassword: event.target.value,
-              })
+              });
+            }}
+          />
+          {error && <p className="auth-error">{error}</p>}
+          <AuthButton
+            text={loading ? "Creating account..." : "Create Account"}
+            type="submit"
+            disabled={
+              loading ||
+              !formData.fullName ||
+              !formData.email ||
+              !formData.password ||
+              !formData.confirmPassword
             }
           />
-
-          <AuthButton text="Create Account" type="submit" />
         </form>
 
         <div className="login-footer">

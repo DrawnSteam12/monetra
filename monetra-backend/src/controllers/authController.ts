@@ -28,8 +28,10 @@ export const registerUser = async (request: Request, response: Response) => {
       password: hashedPassword,
     });
 
+    const token = generateToken(user._id.toString());
     response.status(201).json({
       message: "User registered successfully",
+      token,
 
       user: {
         id: user._id,

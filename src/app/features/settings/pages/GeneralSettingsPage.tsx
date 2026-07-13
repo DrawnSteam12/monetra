@@ -5,25 +5,27 @@ import {
   getSettings,
   updateSettings,
 } from "../../../services/settings.service";
+import "../../../../assets/css/features/settings/settings-page.css";
 import DashboardLayout from "../../dashboard/components/dashboard-layout/DashboardLayout";
 import SettingsSectionCard from "../components/SettingsSectionCard";
 import SettingsPageHeader from "../components/SettingsPageHeader";
 
 const GeneralSettingsPage = () => {
   const [settings, setSettings] = useState<AppSettings>(defaultSettings);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchSettings = async () => {
       try {
         const data = await getSettings();
+
         setSettings({
-          currency: data.currency ?? "PHP",
-          language: data.language ?? "en",
-          timezone: data.timezone ?? "Asia/Manila",
-          theme: data.theme ?? "system",
+          ...defaultSettings,
+          ...data,
         });
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -48,6 +50,16 @@ const GeneralSettingsPage = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <SettingsPageHeader
+          title="General Settings"
+          description="Loading settings..."
+        />
+      </DashboardLayout>
+    );
+  }
   return (
     <DashboardLayout>
       <SettingsPageHeader
