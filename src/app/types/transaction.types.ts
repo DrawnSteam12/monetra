@@ -1,7 +1,7 @@
 export type TransactionType = "income" | "expense";
 
 export type TransactionCategory =
-  | "Salary"
+  | " "
   | "Freelance"
   | "Food"
   | "Bills"

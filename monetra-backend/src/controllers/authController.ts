@@ -54,6 +54,10 @@ export const loginUser = async (request: Request, response: Response) => {
   try {
     const { email, password } = request.body;
 
+    console.log("Login attempt:");
+    console.log("Email from frontend:", email);
+    console.log("Password from frontend:", password);
+
     const user = await User.findOne({
       email,
     }).select("+password");

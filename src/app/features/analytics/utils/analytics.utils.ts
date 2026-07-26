@@ -1,4 +1,4 @@
-import type { Transaction } from "../../transactions/types/transaction.types";
+import type { Transaction } from "../../../types/transaction.types";
 
 type MonthlyExpenseData = {
   month: string;

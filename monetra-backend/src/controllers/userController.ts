@@ -4,7 +4,6 @@ import Transaction from "../models/Transaction";
 import Settings from "../models/Settings";
 import User from "../models/User";
 import bcrypt from "bcryptjs";
-import { transcode } from "node:buffer";
 
 export const getUserProfile = async (
   request: AuthRequest,

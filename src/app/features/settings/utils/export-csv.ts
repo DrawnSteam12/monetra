@@ -1,4 +1,4 @@
-import type { Transaction } from "../../transactions/types/transaction.types";
+import type { Transaction } from "../../../types/transaction.types";
 import { escapeCSV } from "./csv-escape";
 import { getExportFileName } from "./get-export-file-name";
 
