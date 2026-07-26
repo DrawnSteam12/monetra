@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import API_BASE_URL from "../../../api/apiClient";
 
 import type { ReactNode } from "react";
 
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           setLoading(false);
           return;
         }
-        const response = await fetch("http://localhost:5000/api/user/profile", {
+        const response = await fetch(`${API_BASE_URL}/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
 
         headers: {
